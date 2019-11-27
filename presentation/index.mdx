@@ -1,0 +1,90 @@
+import { Notes, Text, Appear, CodePane } from 'spectacle';
+import { DarkSlide, CodeSlide } from './slides';
+import './index.css';
+
+## Project Report
+
+<br />
+
+Keita Makino - 11/25/2019
+
+<Notes>
+  OK, let's start. This is Keita Makino TTP, new PhD student. Today I would like
+  to share something about this topic. But no worries, I will never say anything
+  comlicated math or stats or physics today. Just an overview.
+</Notes>
+
+---
+
+# Objective
+
+- Real-time flight tracking VR
+- Voice control
+
+---
+
+# Data
+
+- The OpenSky Network
+- REST API for real-time flight data
+
+<Appear>
+  <img src={require('../assets/1.png')} width={'100%'} />
+</Appear>
+
+<Text textAlign={"right"} textSize={16} style={{margin: "0 3rem 3rem 0",position: "absolute", bottom: 0, right: 0}}>
+  OpenSky Network, https://opensky-network.org/
+</Text>
+
+---
+
+## API
+
+    type Request = {
+      airport: string;
+      begin: number;
+      end: number;
+    };
+
+    type Response = {
+      icao24: string;
+      estDepartureAirport: string;
+      estArrivalAirport: string;
+      ...
+    }
+
+---
+
+## API
+
+    type Request = {
+      icao24: string;
+      time: number;
+    };
+
+    type Response = {
+      path: Path[];
+    }
+
+    type Path = {
+      time: number;
+      latitude: number;
+      longitude: number;
+      altitude: number;
+      ...
+    }
+
+---
+
+# Voice Control
+
+- Azure Cognitive Service
+- Input airport to change display
+
+---
+
+# Implementation
+
+- WebVR using Babylon.js
+- Not much so far :(
+- Demo
